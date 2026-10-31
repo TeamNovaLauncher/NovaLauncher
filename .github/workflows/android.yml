@@ -37,7 +37,7 @@ jobs:
           bash scripts/languagelist_updater.sh
           mkdir -p out
           gradle :app_pojavlauncher:assembleDebug --no-daemon
-          cp app_pojavlauncher/build/outputs/apk/debug/*.apk out/
+          find app_pojavlauncher/build/outputs/apk -type f -name '*.apk' -exec cp {} out/ \;
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
