@@ -155,6 +155,32 @@ private fun Wordmark(version: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = buildAnnotatedString {
+                withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurface)) {
+                    append("NO")
+                }
+                withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                    append("VA")
+                }
+            },
+            style = MaterialTheme.typography.displaySmall.copy(
+                fontWeight = FontWeight.Bold,
+                fontSize = 40.sp,
+                letterSpacing = (-0.5).sp,
+            ),
+            textAlign = TextAlign.Center,
+            maxLines = 1,
+        )
+        Text(
+            text = "v$version",
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 6.dp),
+        )
+    }
+}private fun Wordmark(version: String) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = buildAnnotatedString {
                 withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurface)) { append("Mobile") }
                 withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) { append("Glues") }
             },

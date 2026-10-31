@@ -70,18 +70,28 @@ val ScreenPadding = 16.dp
 /** MD3 皮肤主题：Android 12+ 用动态取色（Material You），以下回落到默认色板。 */
 @Composable
 fun MgMaterialTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     content: @Composable () -> Unit,
 ) {
-    val context = LocalContext.current
-    val colorScheme = when {
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ->
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+    val colorScheme = darkColorScheme(
+        primary = Color(0xFF9B6DFF),
+        onPrimary = Color.White,
+        secondary = Color(0xFF35D5FF),
+        onSecondary = Color(0xFF001F29),
+        background = Color(0xFF080A12),
+        onBackground = Color(0xFFF4F2FF),
+        surface = Color(0xFF101321),
+        onSurface = Color(0xFFF4F2FF),
+        surfaceVariant = Color(0xFF20263A),
+        onSurfaceVariant = Color(0xFFB5BCD0),
+        outline = Color(0xFF454D67),
+        error = Color(0xFFFF647C),
+    )
 
-        darkTheme -> darkColorScheme()
-        else -> lightColorScheme()
-    }
-    MaterialTheme(colorScheme = colorScheme, content = content)
+    MaterialTheme(
+        colorScheme = colorScheme,
+        content = content,
+    )
 }
 
 /**
