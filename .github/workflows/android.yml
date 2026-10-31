@@ -36,7 +36,6 @@ jobs:
         run: |
           bash scripts/languagelist_updater.sh
           mkdir -p out
-          gradle :jre_lwjgl3glfw:build --no-daemon
           gradle :app_pojavlauncher:assembleDebug --no-daemon
           cp app_pojavlauncher/build/outputs/apk/debug/*.apk out/
 
