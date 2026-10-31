@@ -177,28 +177,6 @@ private fun Wordmark(version: String) {
             modifier = Modifier.padding(top = 6.dp),
         )
     }
-}private fun Wordmark(version: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            text = buildAnnotatedString {
-                withStyle(SpanStyle(color = MaterialTheme.colorScheme.onSurface)) { append("Mobile") }
-                withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) { append("Glues") }
-            },
-            style = MaterialTheme.typography.displaySmall.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 40.sp,
-                letterSpacing = (-0.5).sp,
-            ),
-            textAlign = TextAlign.Center,
-            maxLines = 1,
-        )
-        Text(
-            text = "v$version",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(top = 6.dp),
-        )
-    }
 }
 
 /** 授权状态。未授权时是一个能直接发起授权流的按钮，授权后只是一枚状态标。 */
